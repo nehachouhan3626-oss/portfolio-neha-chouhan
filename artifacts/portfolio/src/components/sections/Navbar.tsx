@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
+  { id: "certificates", label: "Certificates" },
   { id: "education", label: "Education" },
   { id: "contact", label: "Contact" },
 ];
@@ -17,65 +18,62 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      // Determine active section
+      setIsScrolled(window.scrollY > 40);
       const sections = NAV_ITEMS.map((item) => document.getElementById(item.id));
       let currentActive = "";
       for (const section of sections) {
         if (section) {
           const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
+          if (rect.top <= 120 && rect.bottom >= 120) {
             currentActive = section.id;
           }
         }
       }
-      if (currentActive !== activeSection) {
-        setActiveSection(currentActive);
-      }
+      if (currentActive !== activeSection) setActiveSection(currentActive);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSection]);
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: "smooth",
-      });
-    }
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
   };
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-transparent ${
-        isScrolled ? "bg-background/80 backdrop-blur-md border-border/50 shadow-sm" : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "glass-nav border-b border-border/60 shadow-sm"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <button 
+      <div className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between" style={{ height: "72px" }}>
+        {/* Logo */}
+        <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-xl font-bold tracking-tighter text-foreground hover:text-primary transition-colors flex items-center gap-2"
+          className="flex items-center gap-2.5 group"
           data-testid="link-home"
         >
-          <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center border border-primary/20">
-            <span className="text-primary leading-none mt-0.5">JL</span>
+          <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-md shadow-primary/30">
+            <span className="text-white text-sm font-bold leading-none">NC</span>
           </div>
-          <span>J.Dev</span>
+          <span className="text-base font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
+            Neha<span className="text-primary">.</span>
+          </span>
         </button>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-1">
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className={`text-sm font-medium transition-colors relative py-1 ${
-                activeSection === item.id ? "text-primary" : "text-muted-foreground hover:text-foreground"
+              className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-all ${
+                activeSection === item.id
+                  ? "text-primary bg-primary/8"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
               }`}
               data-testid={`nav-${item.id}`}
             >
@@ -83,16 +81,16 @@ export default function Navbar() {
               {activeSection === item.id && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                  className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"
                   initial={false}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
             </button>
           ))}
-          <button 
+          <button
             onClick={() => scrollTo("contact")}
-            className="px-5 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(0,180,216,0.3)] hover:shadow-[0_0_25px_rgba(0,180,216,0.5)]"
+            className="ml-3 px-5 py-2 text-sm font-semibold bg-primary text-white rounded-xl hover:bg-primary/90 transition-all shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5"
             data-testid="nav-cta"
           >
             Hire Me
@@ -101,11 +99,11 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2 rounded-lg text-foreground hover:bg-secondary transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           data-testid="button-mobile-menu"
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -116,20 +114,28 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            className="md:hidden glass-nav border-b border-border/60 overflow-hidden"
           >
-            <div className="px-6 py-4 flex flex-col gap-4">
+            <div className="px-6 py-5 flex flex-col gap-1">
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className={`text-left text-lg font-medium ${
-                    activeSection === item.id ? "text-primary" : "text-muted-foreground"
+                  className={`text-left px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                    activeSection === item.id
+                      ? "text-primary bg-primary/8"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                   }`}
                 >
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={() => scrollTo("contact")}
+                className="mt-3 px-4 py-3 text-center font-semibold bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors"
+              >
+                Hire Me
+              </button>
             </div>
           </motion.div>
         )}

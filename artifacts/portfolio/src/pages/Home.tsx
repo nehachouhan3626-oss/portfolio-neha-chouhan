@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="min-h-[100dvh] bg-background text-foreground overflow-x-hidden font-sans">
       <Navbar />
-      <div className="mx-auto max-w-5xl px-6 md:px-12 flex flex-col gap-32 pb-32">
+      <div className="mx-auto max-w-5xl px-6 md:px-12 flex flex-col gap-28 pb-0">
         <Hero />
         <About />
         <Skills />
