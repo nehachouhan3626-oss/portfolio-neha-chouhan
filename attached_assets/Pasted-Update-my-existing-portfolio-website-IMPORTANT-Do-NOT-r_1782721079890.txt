@@ -1,0 +1,150 @@
+Update my existing portfolio website.
+
+IMPORTANT:
+Do NOT rebuild, redesign, or regenerate the entire website.
+
+Preserve:
+
+* Current layout
+* Current sections
+* Current responsiveness
+* Current animations
+* Current typography
+* Current professional appearance
+
+Only update the existing website with the changes below.
+
+## Step 1: Collect Assets & Information
+
+Before making any changes, ask me to upload/provide:
+
+* Profile Photo
+* Resume PDF
+* CivicFlow Logo/Image
+* Updated Technical Skills
+* Project Details
+* GitHub URL
+* LinkedIn URL
+* Certificates (PDF or Images)
+* Achievement Details (if any)
+
+After collecting everything, show a summary and then apply the updates.
+
+---
+
+## Theme Update
+
+Convert the website into a modern light Coral + Mint aesthetic while keeping the existing design intact.
+
+Color Palette:
+
+* Primary Coral: #FF8A7A
+* Soft Coral: #FFD6CF
+* Primary Mint: #7ED7C1
+* Soft Mint: #DDF7F0
+* Background: #FFFDFC
+* Surface Cards: #FFFFFF
+* Text: #2D3748
+* Secondary Text: #718096
+
+Apply these colors consistently across:
+
+* Navbar
+* Hero Section
+* Buttons
+* Skill Cards
+* Project Cards
+* Certificate Cards
+* Education Timeline
+* Contact Section
+* Footer
+
+Design Goals:
+
+* Light and aesthetic
+* Premium and recruiter-friendly
+* Soft coral-mint gradients
+* Elegant hover effects
+* Excellent readability
+* Professional rather than playful
+
+Only update styling variables and related UI colors.
+
+---
+
+## Profile Photo
+
+* Replace all profile image placeholders with my uploaded photo.
+* Use a professional circular image.
+* Add a subtle shadow and smooth hover effect.
+* Ensure proper responsiveness on all devices.
+
+---
+
+## Skills Section
+
+* Replace the current skills with the skills I provide.
+* Remove all placeholder or fake skills.
+* Keep existing animations and layout.
+* Use suitable technology icons.
+
+---
+
+## Projects Section
+
+* Remove all automatically generated/demo projects.
+* Add only the projects I provide.
+
+For my project "CivicFlow":
+
+* Use the uploaded CivicFlow logo/image.
+* Make CivicFlow the featured project.
+* Include:
+
+  * Project Title
+  * Description
+  * Tech Stack
+  * GitHub Link
+  * Live Demo Link
+* Keep the project card consistent with the current design style.
+
+---
+
+## Resume
+
+* Connect the Resume Download button to my uploaded PDF.
+* Ensure the file downloads or opens correctly.
+* Add a professional resume icon beside the button.
+
+---
+
+## Certificates & Achievements
+
+* Remove fake certificates and achievements.
+* Use only the certificates and achievements I provide.
+* If certificate PDFs/images are uploaded, display them in a clean professional certificate gallery.
+
+---
+
+## Content Cleanup
+
+Remove all:
+
+* Placeholder content
+* Demo projects
+* Fake certificates
+* Fake achievements
+* Fake social links
+
+Replace them only with my real information.
+
+---
+
+## Output Requirements
+
+* Modify only the required files/components.
+* Do not create new sections.
+* Do not alter responsiveness.
+* Do not change the overall structure.
+* Generate only the necessary code changes.
+* Keep the portfolio clean, professional, recruiter-friendly, and suitable for a Portfolio Sprint competition.
