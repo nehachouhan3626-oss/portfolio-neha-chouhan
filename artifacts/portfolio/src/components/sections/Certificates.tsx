@@ -41,15 +41,6 @@ const CERTS: Cert[] = [
     pdfPath: "/certificates/nptel-neural.pdf",
   },
   {
-    title: "Natural Language Processing",
-    issuer: "NPTEL",
-    date: "2026",
-    icon: Brain,
-    iconColor: "#FF8A7A",
-    accentBg: "rgba(255,214,207,0.4)",
-    accentBorder: "rgba(255,138,122,0.25)",
-  },
-  {
     title: "Artificial Intelligence Foundation",
     issuer: "Infosys Springboard",
     date: "January 8, 2026",
@@ -164,7 +155,6 @@ export default function Certificates() {
                 ) : null}
               </div>
 
-              {/* PDF link button */}
               {cert.pdfPath && (
                 <a
                   href={cert.pdfPath}

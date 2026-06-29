@@ -14,26 +14,15 @@ const PROJECTS = [
     gradient: "from-[#FF8A7A] via-[#FFB4A2] to-[#7ED7C1]",
   },
   {
-    title: "AI Sentiment Analyzer",
+    title: "DSA Practice & Problem Solving",
     description:
-      "A natural language processing tool that classifies text sentiment using machine learning models trained on large-scale review datasets. Includes a clean web interface for real-time sentiment analysis with confidence scores.",
-    tech: ["Python", "Scikit-learn", "NLP", "Pandas", "Flask"],
+      "Solved programming challenges on coding platforms and strengthened Data Structures and Algorithms concepts using C++. Covers arrays, linked lists, stacks, queues, trees, and recursion with clean, optimized solutions.",
+    tech: ["C++", "Data Structures", "Algorithms", "Problem Solving"],
     github: "https://github.com/nehachouhan3626-oss",
     live: "",
     featured: false,
-    tag: "AI & ML",
+    tag: "CS Fundamentals",
     gradient: "from-[#7ED7C1] to-[#DDF7F0]",
-  },
-  {
-    title: "Computer Vision Classifier",
-    description:
-      "An image classification system leveraging convolutional neural networks (CNN) to detect and categorize objects in real time. Demonstrates an end-to-end deep learning pipeline from data preprocessing to model inference.",
-    tech: ["Python", "NumPy", "CNN", "Neural Networks", "Jupyter"],
-    github: "https://github.com/nehachouhan3626-oss",
-    live: "",
-    featured: false,
-    tag: "Deep Learning",
-    gradient: "from-[#FFD6CF] to-[#FF8A7A]",
   },
 ];
 
@@ -128,10 +117,7 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <h3
-                    className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors"
-                    style={{ color: undefined }}
-                  >
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1">
@@ -152,7 +138,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* CivicFlow: placeholder visual for featured card */}
+                {/* CivicFlow visual */}
                 {project.featured && (
                   <div className="hidden md:flex items-center justify-center mt-6 md:mt-0">
                     <div

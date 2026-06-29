@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
 import {
-  SiPython, SiJavascript, SiHtml5, SiCss,
-  SiReact, SiTailwindcss, SiNodedotjs, SiGit,
-  SiMysql, SiScikitlearn, SiNumpy, SiPandas, SiJupyter,
+  SiPython, SiNumpy, SiPandas, SiGit,
 } from "react-icons/si";
-import { Cloud, Brain, Code2, Github } from "lucide-react";
+import { BarChart2, Code2, Layers, Github, Database, Brain, BookOpen } from "lucide-react";
 
 type Skill = {
   name: string;
@@ -27,42 +25,36 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: "Python", icon: SiPython, color: "#3776AB" },
       { name: "C++", icon: Code2, color: "#00599C" },
-      { name: "JavaScript", icon: SiJavascript, color: "#c8a800" },
-      { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-      { name: "CSS3", icon: SiCss, color: "#1572B6" },
     ],
   },
   {
-    title: "Web Development",
-    emoji: "🌐",
+    title: "Data Science & AI",
+    emoji: "📊",
     accent: "#7ED7C1",
     skills: [
-      { name: "React", icon: SiReact, color: "#61DAFB" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-    ],
-  },
-  {
-    title: "AI & ML",
-    emoji: "🤖",
-    accent: "#FF8A7A",
-    skills: [
-      { name: "Scikit-learn", icon: SiScikitlearn, color: "#F7931E" },
       { name: "NumPy", icon: SiNumpy, color: "#4BA3C7" },
       { name: "Pandas", icon: SiPandas, color: "#150458" },
-      { name: "Jupyter", icon: SiJupyter, color: "#F37626" },
-      { name: "Neural Networks", icon: Brain, color: "#FF8A7A" },
+      { name: "Matplotlib", icon: BarChart2, color: "#11557C" },
     ],
   },
   {
-    title: "Tools & Platforms",
+    title: "CS Fundamentals",
+    emoji: "🧠",
+    accent: "#FF8A7A",
+    skills: [
+      { name: "Object-Oriented Programming", icon: Layers, color: "#FF8A7A" },
+      { name: "Basic Data Structures", icon: Database, color: "#7ED7C1" },
+      { name: "Problem Solving", icon: Brain, color: "#FFB4A2" },
+      { name: "Basic Programming Concepts", icon: BookOpen, color: "#718096" },
+    ],
+  },
+  {
+    title: "Tools & Version Control",
     emoji: "🛠️",
     accent: "#7ED7C1",
     skills: [
       { name: "Git", icon: SiGit, color: "#F05032" },
       { name: "GitHub", icon: Github, color: "#333333" },
-      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-      { name: "Cloud (AWS)", icon: Cloud, color: "#FF9900" },
     ],
   },
 ];
@@ -129,10 +121,7 @@ export default function Skills() {
                       (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,138,122,0.15)";
                     }}
                   >
-                    <skill.icon
-                      size={20}
-                      style={{ color: skill.color }}
-                    />
+                    <skill.icon size={20} style={{ color: skill.color }} />
                     <span className="text-sm font-medium text-foreground">{skill.name}</span>
                   </motion.div>
                 ))}
