@@ -1,34 +1,49 @@
 import { motion } from "framer-motion";
 import { SiPython, SiGoogle } from "react-icons/si";
-import { Brain, Award, Cpu } from "lucide-react";
+import { Brain, Award, Cpu, ExternalLink } from "lucide-react";
 
 type Cert = {
   title: string;
   issuer: string;
   date: string;
   score?: string;
+  detail?: string;
   icon: React.ComponentType<{ size?: number; className?: string; style?: React.CSSProperties }>;
   iconColor: string;
   accentBg: string;
   accentBorder: string;
+  pdfPath?: string;
 };
 
 const CERTS: Cert[] = [
   {
     title: "Python for Data Science",
     issuer: "NPTEL",
-    date: "2024",
+    date: "Jan–Feb 2026",
     score: "70%",
+    detail: "4 week course · 22.25/25 assignments · 47.25/75 exam",
     icon: SiPython,
     iconColor: "#3776AB",
     accentBg: "rgba(255,214,207,0.4)",
     accentBorder: "rgba(255,138,122,0.25)",
+    pdfPath: "/certificates/nptel-python.pdf",
   },
   {
     title: "Neural Networks for Computer Vision & NLP",
     issuer: "NPTEL",
-    date: "2024",
+    date: "Jan–Apr 2026",
     score: "78%",
+    detail: "12 week course · 25/25 assignments · 52.5/75 exam",
+    icon: Brain,
+    iconColor: "#FF8A7A",
+    accentBg: "rgba(255,214,207,0.4)",
+    accentBorder: "rgba(255,138,122,0.25)",
+    pdfPath: "/certificates/nptel-neural.pdf",
+  },
+  {
+    title: "Natural Language Processing",
+    issuer: "NPTEL",
+    date: "2026",
     icon: Brain,
     iconColor: "#FF8A7A",
     accentBg: "rgba(255,214,207,0.4)",
@@ -37,20 +52,22 @@ const CERTS: Cert[] = [
   {
     title: "Artificial Intelligence Foundation",
     issuer: "Infosys Springboard",
-    date: "2024",
+    date: "January 8, 2026",
     icon: Cpu,
     iconColor: "#7ED7C1",
     accentBg: "rgba(221,247,240,0.5)",
     accentBorder: "rgba(126,215,193,0.3)",
+    pdfPath: "/certificates/infosys-ai.pdf",
   },
   {
     title: "Python Foundation Certification",
     issuer: "Infosys Springboard",
-    date: "2024",
+    date: "January 8, 2026",
     icon: SiPython,
     iconColor: "#3776AB",
     accentBg: "rgba(221,247,240,0.5)",
     accentBorder: "rgba(126,215,193,0.3)",
+    pdfPath: "/certificates/infosys-python.pdf",
   },
   {
     title: "Google Data Analytics",
@@ -104,7 +121,18 @@ export default function Certificates() {
               </div>
 
               {/* Award badge */}
-              <div className="absolute top-4 right-4">
+              <div className="absolute top-4 right-4 flex items-center gap-1.5">
+                {cert.pdfPath && (
+                  <a
+                    href={cert.pdfPath}
+                    target="_blank"
+                    rel="noreferrer"
+                    title="View Certificate"
+                    className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-primary"
+                  >
+                    <ExternalLink size={14} />
+                  </a>
+                )}
                 <Award size={15} style={{ color: "#FFB347" }} />
               </div>
 
@@ -113,17 +141,42 @@ export default function Certificates() {
               </h3>
               <p className="text-xs font-medium text-muted-foreground">{cert.issuer}</p>
 
+              {cert.detail && (
+                <p className="text-[11px] text-muted-foreground/60 mt-1 font-mono leading-snug">{cert.detail}</p>
+              )}
+
               <div className="flex items-center justify-between mt-3">
                 <span className="text-xs text-muted-foreground/70 font-mono">{cert.date}</span>
-                {cert.score && (
+                {cert.score ? (
                   <span
                     className="px-2 py-0.5 rounded-full text-xs font-semibold border"
                     style={{ background: "rgba(221,247,240,0.6)", borderColor: "rgba(126,215,193,0.4)", color: "#2D8C78" }}
                   >
                     Score: {cert.score}
                   </span>
-                )}
+                ) : cert.date === "In Progress" ? (
+                  <span
+                    className="px-2 py-0.5 rounded-full text-xs font-semibold border"
+                    style={{ background: "rgba(255,214,207,0.4)", borderColor: "rgba(255,138,122,0.25)", color: "#c0554a" }}
+                  >
+                    In Progress
+                  </span>
+                ) : null}
               </div>
+
+              {/* PDF link button */}
+              {cert.pdfPath && (
+                <a
+                  href={cert.pdfPath}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 flex items-center gap-1.5 text-xs font-medium transition-colors"
+                  style={{ color: "#FF8A7A" }}
+                >
+                  <ExternalLink size={12} />
+                  View Certificate
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
