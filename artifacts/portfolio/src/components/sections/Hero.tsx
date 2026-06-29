@@ -4,17 +4,16 @@ import { ArrowRight, Download, Github, Linkedin, MapPin, Sparkles } from "lucide
 export default function Hero() {
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center pt-20 relative overflow-hidden">
-      {/* Background blobs */}
+      {/* Background blobs — coral + mint */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary/8 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-violet-400/10 rounded-full blur-[80px]" />
-        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-cyan-400/8 rounded-full blur-[80px]" />
-        {/* Subtle grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#6366f108_1px,transparent_1px),linear-gradient(to_bottom,#6366f108_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full blur-[100px]" style={{ background: "rgba(255,138,122,0.12)" }} />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[90px]" style={{ background: "rgba(126,215,193,0.15)" }} />
+        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full blur-[80px]" style={{ background: "rgba(255,180,162,0.10)" }} />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#FF8A7A0a_1px,transparent_1px),linear-gradient(to_bottom,#7ED7C10a_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
 
-      <div className="grid md:grid-cols-[1fr_auto] gap-12 items-center">
-        {/* Text content */}
+      <div className="grid md:grid-cols-[1fr_auto] gap-10 items-center">
+        {/* Text */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -25,7 +24,8 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-sm font-medium mb-6"
+            style={{ background: "rgba(255,214,207,0.5)", borderColor: "rgba(255,138,122,0.3)", color: "#c0554a" }}
           >
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <Sparkles size={13} />
@@ -39,7 +39,7 @@ export default function Hero() {
 
           <p className="text-xl md:text-2xl font-semibold text-muted-foreground mb-5">
             B.Tech CSE (AI & ML) Student{" "}
-            <span className="text-foreground/60">·</span>{" "}
+            <span className="text-foreground/40">·</span>{" "}
             Aspiring AI Engineer & Tech Entrepreneur
           </p>
 
@@ -47,9 +47,8 @@ export default function Hero() {
             Passionate about building intelligent systems and elegant software. I turn data into insights, ideas into products, and complex problems into clean code.
           </p>
 
-          {/* Location */}
           <div className="flex items-center gap-1.5 text-muted-foreground text-sm mb-8">
-            <MapPin size={15} className="text-primary" />
+            <MapPin size={15} style={{ color: "#FF8A7A" }} />
             <span>Indore, India</span>
           </div>
 
@@ -57,7 +56,8 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-3">
             <button
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5"
+              style={{ background: "linear-gradient(135deg, #FF8A7A, #FFB4A2)", boxShadow: "0 8px 24px rgba(255,138,122,0.35)" }}
               data-testid="button-view-projects"
             >
               View Projects
@@ -79,36 +79,49 @@ export default function Hero() {
               href="https://www.linkedin.com/in/neha-chouhan-889215360/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0A66C2] text-white font-semibold rounded-xl hover:bg-[#0A66C2]/90 transition-all shadow-md hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl transition-all shadow-md hover:-translate-y-0.5"
+              style={{ background: "#0A66C2" }}
               data-testid="link-linkedin"
             >
               <Linkedin size={17} />
               LinkedIn
             </a>
 
-            <button
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-foreground font-semibold rounded-xl border border-border hover:border-primary/40 hover:bg-secondary transition-all shadow-sm hover:-translate-y-0.5"
+            <a
+              href="/neha-resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-foreground font-semibold rounded-xl border transition-all shadow-sm hover:-translate-y-0.5"
+              style={{ borderColor: "rgba(255,138,122,0.35)" }}
               data-testid="button-download-resume"
             >
-              <Download size={17} className="text-primary" />
+              <Download size={17} style={{ color: "#FF8A7A" }} />
               Resume
-            </button>
+            </a>
           </div>
         </motion.div>
 
-        {/* Avatar */}
+        {/* Profile photo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
           className="hidden md:flex flex-col items-center"
         >
-          <div className="relative">
-            <div className="w-52 h-52 rounded-3xl bg-gradient-to-br from-primary/20 via-violet-400/20 to-cyan-400/20 border-2 border-primary/20 flex items-center justify-center shadow-2xl shadow-primary/15 overflow-hidden">
-              <span className="text-6xl font-extrabold gradient-text select-none">NC</span>
+          <div className="relative group">
+            {/* Coral-mint ring */}
+            <div
+              className="absolute -inset-1 rounded-full opacity-70 group-hover:opacity-100 transition-opacity blur-sm"
+              style={{ background: "linear-gradient(135deg, #FF8A7A, #7ED7C1)" }}
+            />
+            <div className="relative w-52 h-52 rounded-full overflow-hidden border-4 border-white shadow-xl">
+              <img
+                src="/neha-profile.jpeg"
+                alt="Neha Chouhan"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
             {/* Floating badge */}
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl px-3 py-2 shadow-lg border border-border flex items-center gap-2">
+            <div className="absolute -bottom-3 -right-3 bg-white rounded-2xl px-3 py-2 shadow-lg border border-border flex items-center gap-2">
               <span className="text-lg">🤖</span>
               <span className="text-xs font-semibold text-foreground">AI & ML</span>
             </div>
@@ -121,10 +134,10 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/40"
       >
         <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-muted-foreground/40 to-transparent" />
+        <div className="w-px h-10 bg-gradient-to-b from-muted-foreground/30 to-transparent" />
       </motion.div>
     </section>
   );

@@ -15,6 +15,7 @@ type Skill = {
 type SkillCategory = {
   title: string;
   emoji: string;
+  accent: string;
   skills: Skill[];
 };
 
@@ -22,10 +23,11 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Programming Languages",
     emoji: "💻",
+    accent: "#FF8A7A",
     skills: [
       { name: "Python", icon: SiPython, color: "#3776AB" },
       { name: "C++", icon: Code2, color: "#00599C" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "JavaScript", icon: SiJavascript, color: "#c8a800" },
       { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
       { name: "CSS3", icon: SiCss, color: "#1572B6" },
     ],
@@ -33,6 +35,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Web Development",
     emoji: "🌐",
+    accent: "#7ED7C1",
     skills: [
       { name: "React", icon: SiReact, color: "#61DAFB" },
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
@@ -42,20 +45,22 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "AI & ML",
     emoji: "🤖",
+    accent: "#FF8A7A",
     skills: [
       { name: "Scikit-learn", icon: SiScikitlearn, color: "#F7931E" },
-      { name: "NumPy", icon: SiNumpy, color: "#013243" },
+      { name: "NumPy", icon: SiNumpy, color: "#4BA3C7" },
       { name: "Pandas", icon: SiPandas, color: "#150458" },
       { name: "Jupyter", icon: SiJupyter, color: "#F37626" },
-      { name: "Neural Nets", icon: Brain, color: "#8B5CF6" },
+      { name: "Neural Networks", icon: Brain, color: "#FF8A7A" },
     ],
   },
   {
     title: "Tools & Platforms",
     emoji: "🛠️",
+    accent: "#7ED7C1",
     skills: [
       { name: "Git", icon: SiGit, color: "#F05032" },
-      { name: "GitHub", icon: Github, color: "#181717" },
+      { name: "GitHub", icon: Github, color: "#333333" },
       { name: "MySQL", icon: SiMysql, color: "#4479A1" },
       { name: "Cloud (AWS)", icon: Cloud, color: "#FF9900" },
     ],
@@ -80,9 +85,8 @@ export default function Skills() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
       >
-        {/* Section label */}
         <div className="flex items-center gap-3 mb-10">
-          <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-widest uppercase">
+          <span className="px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase" style={{ background: "rgba(255,214,207,0.5)", color: "#c0554a" }}>
             Skills
           </span>
           <div className="h-px flex-1 bg-border max-w-[120px]" />
@@ -102,8 +106,8 @@ export default function Skills() {
               transition={{ duration: 0.5, delay: catIdx * 0.1 }}
             >
               <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-4 flex items-center gap-2">
-                <span>{cat.emoji}</span>
-                {cat.title}
+                <span className="w-2 h-2 rounded-full" style={{ background: cat.accent }} />
+                {cat.emoji} {cat.title}
               </h3>
               <motion.div
                 variants={container}
@@ -116,11 +120,17 @@ export default function Skills() {
                   <motion.div
                     key={skill.name}
                     variants={item}
-                    className="flex items-center gap-2.5 px-4 py-2.5 bg-white rounded-xl border border-border shadow-sm hover:shadow-md hover:border-primary/30 hover:-translate-y-0.5 transition-all group cursor-default"
+                    className="flex items-center gap-2.5 px-4 py-2.5 bg-white rounded-xl border border-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group cursor-default"
+                    style={{ borderColor: "rgba(255,138,122,0.15)" }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.borderColor = cat.accent + "55";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,138,122,0.15)";
+                    }}
                   >
                     <skill.icon
                       size={20}
-                      className="transition-colors"
                       style={{ color: skill.color }}
                     />
                     <span className="text-sm font-medium text-foreground">{skill.name}</span>

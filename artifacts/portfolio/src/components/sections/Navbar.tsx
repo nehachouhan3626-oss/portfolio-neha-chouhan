@@ -20,16 +20,14 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40);
       const sections = NAV_ITEMS.map((item) => document.getElementById(item.id));
-      let currentActive = "";
-      for (const section of sections) {
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            currentActive = section.id;
-          }
+      let current = "";
+      for (const s of sections) {
+        if (s) {
+          const r = s.getBoundingClientRect();
+          if (r.top <= 120 && r.bottom >= 120) current = s.id;
         }
       }
-      if (currentActive !== activeSection) setActiveSection(currentActive);
+      if (current !== activeSection) setActiveSection(current);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -44,23 +42,25 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "glass-nav border-b border-border/60 shadow-sm"
-          : "bg-transparent"
+        isScrolled ? "glass-nav border-b shadow-sm" : "bg-transparent"
       }`}
+      style={{ borderColor: isScrolled ? "rgba(255,138,122,0.2)" : "transparent" }}
     >
-      <div className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between" style={{ height: "72px" }}>
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: "72px" }}>
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex items-center gap-2.5 group"
           data-testid="link-home"
         >
-          <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-md shadow-primary/30">
+          <div
+            className="w-9 h-9 rounded-xl flex items-center justify-center shadow-md"
+            style={{ background: "linear-gradient(135deg, #FF8A7A, #7ED7C1)" }}
+          >
             <span className="text-white text-sm font-bold leading-none">NC</span>
           </div>
           <span className="text-base font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
-            Neha<span className="text-primary">.</span>
+            Neha<span style={{ color: "#FF8A7A" }}>.</span>
           </span>
         </button>
 
@@ -70,18 +70,19 @@ export default function Navbar() {
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-all ${
-                activeSection === item.id
-                  ? "text-primary bg-primary/8"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-              }`}
+              className="relative px-3 py-2 text-sm font-medium rounded-lg transition-all"
+              style={{
+                color: activeSection === item.id ? "#FF8A7A" : undefined,
+                background: activeSection === item.id ? "rgba(255,214,207,0.45)" : undefined,
+              }}
               data-testid={`nav-${item.id}`}
             >
               {item.label}
               {activeSection === item.id && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"
+                  className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+                  style={{ background: "#FF8A7A" }}
                   initial={false}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
@@ -90,7 +91,8 @@ export default function Navbar() {
           ))}
           <button
             onClick={() => scrollTo("contact")}
-            className="ml-3 px-5 py-2 text-sm font-semibold bg-primary text-white rounded-xl hover:bg-primary/90 transition-all shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5"
+            className="ml-3 px-5 py-2 text-sm font-semibold text-white rounded-xl hover:opacity-90 transition-all hover:-translate-y-0.5"
+            style={{ background: "linear-gradient(135deg, #FF8A7A, #FFB4A2)", boxShadow: "0 4px 14px rgba(255,138,122,0.35)" }}
             data-testid="nav-cta"
           >
             Hire Me
@@ -107,32 +109,33 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Nav */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-nav border-b border-border/60 overflow-hidden"
+            className="md:hidden glass-nav border-b overflow-hidden"
+            style={{ borderColor: "rgba(255,138,122,0.2)" }}
           >
             <div className="px-6 py-5 flex flex-col gap-1">
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className={`text-left px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                    activeSection === item.id
-                      ? "text-primary bg-primary/8"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                  }`}
+                  className="text-left px-4 py-3 rounded-xl text-base font-medium transition-colors"
+                  style={{
+                    color: activeSection === item.id ? "#FF8A7A" : undefined,
+                    background: activeSection === item.id ? "rgba(255,214,207,0.45)" : undefined,
+                  }}
                 >
                   {item.label}
                 </button>
               ))}
               <button
                 onClick={() => scrollTo("contact")}
-                className="mt-3 px-4 py-3 text-center font-semibold bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors"
+                className="mt-3 px-4 py-3 text-center font-semibold text-white rounded-xl"
+                style={{ background: "linear-gradient(135deg, #FF8A7A, #FFB4A2)" }}
               >
                 Hire Me
               </button>
