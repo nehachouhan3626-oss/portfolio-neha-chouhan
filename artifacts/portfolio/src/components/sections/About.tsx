@@ -3,7 +3,7 @@ import { Code2, FolderGit2, Award, Brain } from "lucide-react";
 
 const STATS = [
   { icon: Brain, value: "AI & ML", label: "Specialization", color: "#FF8A7A", bg: "rgba(255,214,207,0.5)" },
-  { icon: FolderGit2, value: "5+", label: "Projects Built", color: "#7ED7C1", bg: "rgba(221,247,240,0.6)" },
+  { icon: FolderGit2, value: "1", label: "Project Built", color: "#7ED7C1", bg: "rgba(221,247,240,0.6)" },
   { icon: Award, value: "4+", label: "Certifications", color: "#FFB4A2", bg: "rgba(255,214,207,0.4)" },
   { icon: Code2, value: "7.4", label: "CGPA", color: "#7ED7C1", bg: "rgba(221,247,240,0.6)" },
 ];

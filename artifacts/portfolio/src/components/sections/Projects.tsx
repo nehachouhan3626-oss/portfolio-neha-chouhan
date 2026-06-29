@@ -13,17 +13,6 @@ const PROJECTS = [
     tag: "Open Source",
     gradient: "from-[#FF8A7A] via-[#FFB4A2] to-[#7ED7C1]",
   },
-  {
-    title: "DSA Practice & Problem Solving",
-    description:
-      "Solved programming challenges on coding platforms and strengthened Data Structures and Algorithms concepts using C++. Covers arrays, linked lists, stacks, queues, trees, and recursion with clean, optimized solutions.",
-    tech: ["C++", "Data Structures", "Algorithms", "Problem Solving"],
-    github: "https://github.com/nehachouhan3626-oss",
-    live: "",
-    featured: false,
-    tag: "CS Fundamentals",
-    gradient: "from-[#7ED7C1] to-[#DDF7F0]",
-  },
 ];
 
 export default function Projects() {
