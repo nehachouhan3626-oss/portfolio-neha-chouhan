@@ -1,0 +1,191 @@
+You are a senior UI/UX designer and frontend engineer.
+
+I already have a functional student portfolio website with the following sections:
+
+* Hero
+* About
+* Skills
+* Projects
+* Certificates
+* Education
+* Contact
+
+DO NOT rebuild the portfolio from scratch.
+
+Instead, transform the existing website into a premium, light-theme, aesthetic, recruiter-focused portfolio that looks custom-designed and competition-worthy.
+
+IMPORTANT:
+Before generating content, ask me for:
+
+1. Profile photo
+2. Resume PDF
+3. GitHub URL
+4. LinkedIn URL
+5. Email
+6. Phone number
+7. Location (optional)
+8. Education details
+9. Skills
+10. Projects
+11. Certificates/Achievements
+12. Social links
+
+If any information is missing, automatically create professional placeholders that can be replaced later.
+
+DESIGN GOALS:
+
+* Light theme instead of dark theme
+* Clean, elegant, modern aesthetic
+* Premium startup-style portfolio
+* Recruiter-friendly layout
+* Professional and trustworthy appearance
+* Custom-made feel (avoid AI-template look)
+* Excellent visual hierarchy
+* Smooth animations
+* Mobile-first responsive design
+* Fast loading
+* Accessible UI
+* SEO-friendly structure
+
+COLOR PALETTE:
+Use a modern light palette such as:
+
+* Background: #F8FAFC
+* Surface: #FFFFFF
+* Primary: #4F46E5
+* Secondary: #06B6D4
+* Accent: #8B5CF6
+* Text: #0F172A
+* Muted Text: #64748B
+
+TYPOGRAPHY:
+
+* Modern professional font pairing
+* Strong section headings
+* Clean readable body text
+* Consistent spacing system
+
+NAVBAR:
+
+* Sticky navbar
+* Smooth scrolling
+* Active section highlighting
+* Mobile hamburger menu
+* Glassmorphism effect on scroll
+
+HERO SECTION:
+
+* Professional introduction
+* Animated headline
+* Profile image area
+* Resume download button
+* GitHub button
+* LinkedIn button
+* Attractive call-to-action buttons
+* Subtle background effects
+* Elegant entrance animations
+
+ABOUT SECTION:
+
+* Professional first-year AIML student introduction
+* Focus on AI, ML, software development and problem-solving
+* Add visual statistics cards such as:
+
+  * Skills
+  * Projects
+  * Certifications
+* Modern card layout
+
+SKILLS SECTION:
+
+* Attractive skill cards
+* Technology icons
+* Hover effects
+* Progress indicators
+* Categorize skills:
+
+  * Programming
+  * Web Development
+  * Tools
+  * AI & ML
+
+PROJECTS SECTION:
+Create beautiful project cards containing:
+
+* Project image
+* Project title
+* Description
+* Tech stack
+* GitHub button
+* Live Demo button
+* Hover animation
+* Featured project styling
+
+CERTIFICATES & ACHIEVEMENTS:
+
+* Premium card layout
+* Certificate image placeholders
+* Achievement badges
+* Responsive grid
+
+EDUCATION SECTION:
+
+* Vertical timeline design
+* Institution details
+* Degree information
+* Duration
+* Academic highlights
+
+CONTACT SECTION:
+Include:
+
+* Email
+* Phone
+* LinkedIn
+* GitHub
+* Contact form
+
+Add:
+
+* Form validation
+* Success message
+* Professional contact cards
+
+FOOTER:
+
+* Minimal premium footer
+* Social links
+* Copyright
+* Back-to-top button
+
+ANIMATIONS:
+
+* Scroll reveal animations
+* Fade-up effects
+* Hover micro-interactions
+* Smooth transitions
+* Floating decorative elements
+* Professional motion design (not excessive)
+
+TECHNICAL REQUIREMENTS:
+
+* Clean code structure
+* Semantic HTML
+* SEO meta tags
+* Accessibility best practices
+* Optimized assets
+* Responsive layouts
+* Reusable components
+* Production-ready implementation
+
+OUTPUT REQUIREMENTS:
+
+1. First ask for all portfolio information.
+2. Then update the existing website instead of rebuilding it.
+3. Clearly identify which files need modification.
+4. Generate only the required changes.
+5. Preserve responsiveness.
+6. Add comments explaining major sections.
+7. Focus heavily on visual quality and recruiter appeal.
+
+The final result should look like a portfolio worthy of a frontend portfolio sprint competition and impress both recruiters and judges.
