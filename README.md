@@ -6,3 +6,4 @@ my one of the tech skill is python
 i have done 10th from chameli devi public school
 i have done 12th from prestige public school
 i got 90% in 10th
+i got 63% in 12th
